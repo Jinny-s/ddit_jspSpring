@@ -1,0 +1,3 @@
+INDEX VERSION 1.131
+D:\A_TeachingMaterial\6.JspSpring\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1381665784.index
+\naver_search\src
