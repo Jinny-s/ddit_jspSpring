@@ -1,4 +1,4 @@
-package com.servlet.test;
+package com.servlet.contorller;
 
 import java.io.IOException;
 import java.io.PrintWriter;

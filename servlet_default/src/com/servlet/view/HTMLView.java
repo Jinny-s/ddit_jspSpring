@@ -18,7 +18,7 @@ public class HTMLView {
 	
 	public static void html(HttpServletResponse response, String title, String css, String script, String body) throws IOException, ServletException {
 		
-		response.setContentType("text/html;");
+		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		
 		out.println("<!DOCTYPE html>");
@@ -36,6 +36,8 @@ public class HTMLView {
 	public static void loginView(HttpServletResponse response) throws IOException, ServletException {
 		
 		String body = null;
+		
+		response.setContentType("text/html;charset=utf-8");
 		
 		body = "<form action='login' method='post'>"
 				+ "아이디 : <input type='text' name='memId' /><br/>"
