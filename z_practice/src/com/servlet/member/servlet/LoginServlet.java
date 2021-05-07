@@ -41,19 +41,19 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		
+		String memId = request.getParameter("memId");
+		String memPw = request.getParameter("memPw");
+		
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<title>LOG IN</title>");
 		out.println("</head>");
 		out.println("<body>");
-		out.println("<h1>메인입니당</h1>");
+		out.println("<h1>" + memId + "님, 메인입니다</h1>");
 		out.println("</form>");
 		out.println("</body>");
 		
-		String memId = request.getParameter("memId");
-		String memPw = request.getParameter("memPw");
-		System.out.println(memId + " / " + memPw);
 		
 		MemberVO mv = new MemberVO();
 		
