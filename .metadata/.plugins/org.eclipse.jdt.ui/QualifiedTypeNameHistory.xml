@@ -2,7 +2,6 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="java.awt.List"/>
-<fullyQualifiedTypeName name="java.sql.SQLException"/>
 <fullyQualifiedTypeName name="com.sun.corba.se.pept.protocol.MessageMediator"/>
 <fullyQualifiedTypeName name="com.servlet.member.dao.IMemberDao"/>
 <fullyQualifiedTypeName name="com.servlet.member.dao.MemberDaoImpl"/>
@@ -10,13 +9,22 @@
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.servlet.member.vo.SqlMapClientUtil"/>
-<fullyQualifiedTypeName name="com.servlet.member.SqlMapClientUtil"/>
 <fullyQualifiedTypeName name="com.servlet.member.util.SqlMapClientUtil"/>
-<fullyQualifiedTypeName name="com.servlet.member.vo.MemberVO"/>
 <fullyQualifiedTypeName name="com.servlet.member.service.IMemberService"/>
 <fullyQualifiedTypeName name="com.servlet.member.service.MemberServiceImpl"/>
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletException"/>
+<fullyQualifiedTypeName name="com.servlet.member.vo.MemberVO"/>
+<fullyQualifiedTypeName name="com.servlet.vo.MemberVO"/>
+<fullyQualifiedTypeName name="com.servlet.dao.MemberDAO"/>
+<fullyQualifiedTypeName name="com.servlet.exception.InvalidPasswordException"/>
+<fullyQualifiedTypeName name="com.servlet.exception.NotFoundIDException"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="com.servlet.member.SqlMapClientUtil"/>
+<fullyQualifiedTypeName name="com.servlet.view.HTMLView"/>
+<fullyQualifiedTypeName name="com.sun.java.util.jar.pack.Package.Class.Member"/>
+<fullyQualifiedTypeName name="com.servlet.service.MemberService"/>
+<fullyQualifiedTypeName name="com.servlet.dto.MemberVO"/>
 </qualifiedTypeNameHistroy>
