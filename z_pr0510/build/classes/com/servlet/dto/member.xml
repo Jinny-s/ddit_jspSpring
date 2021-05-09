@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+         PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+         "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="member">
+	<insert id="insertMember" parameterClass="com.servlet.dto.MemberVO">
+		INSERT INTO TB_MEM (
+			MEM_ID
+			, MEM_PW
+			, MEM_EMAIL
+			, MEM_HP
+		) VALUES (
+			#memId#
+			, #memPw#
+			, #memEmail#
+			, #memHp#
+		)
+	</insert>
+	
+	<update id="updateMember" parameterClass="com.servlet.dto.MemberVO">
+		UPDATE TB_MEM
+		SET	   MEM_PW = #memPw#
+			   , MEM_EMAIL = #memEmail#
+			   , MEM_HP = #memHp#
+		WHERE  MEM_ID = #memId#
+	</update>
+	
+	<delete id="deleteMember" parameterClass="String">
+		DELETE FROM TB_MEM
+		WHERE  MEM_ID = #memId#
+	</delete>
+	
+	<select id="selectMemberByID" parameterClass="String" resultClass="com.servlet.dto.MemberVO">
+		SELECT MEM_ID		memId
+			   , MEM_PW		memPw
+			   , MEM_EMAIL	memEmail
+			   , MEM_HP		memHp
+		FROM   TB_MEM
+		WHERE  MEM_ID = #memId#
+	</select>
+	
+	<select id="selectMemberList" parameterClass="com.servlet.dto.MemberVO" resultClass="com.servlet.dto.MemberVO">
+		SELECT MEM_ID		memId
+			   , MEM_PW		memPw
+			   , MEM_EMAIL	memEmail
+			   , MEM_HP		memHp
+		FROM   TB_MEM
+	</select>
+	
+</sqlMap>
