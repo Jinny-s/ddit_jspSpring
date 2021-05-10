@@ -9,6 +9,7 @@ import com.servlet.SqlMapClientUtil;
 import com.servlet.dao.IMemberDao;
 import com.servlet.dao.MemberDaoImpl;
 import com.servlet.dto.MemberVO;
+import com.servlet.exception.ExistIdException;
 import com.servlet.exception.InvalidPasswordException;
 import com.servlet.exception.NotFoundIDException;
 
@@ -32,7 +33,24 @@ public class MemberServiceImpl implements IMemberService {
 	}
 	
 	@Override
-	public int insertMember(MemberVO mv) {
+	public MemberVO checkMember(String memId) throws ExistIdException, SQLException{
+		MemberVO member = null;
+		try {
+			member = memDao.selectMemberByID(smc, memId);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw e;
+		}
+		
+		if(member != null) {
+			throw new ExistIdException();
+		} else {
+			return member;
+		}
+	}
+	
+	@Override
+	public int insertMember(MemberVO mv){
 		int cnt = 0;
 		try {
 			cnt = memDao.insertMember(smc, mv);

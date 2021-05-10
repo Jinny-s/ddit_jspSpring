@@ -2,6 +2,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true" %>
 <%
 	List<MemberVO> list = (List<MemberVO>) request.getAttribute("list");
 %>
@@ -17,7 +18,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary d-flex justify-content-between">
-	<a class="navbar-brand" href="<%=request.getContextPath()%>/main"><i class="fas fa-users mr-2"></i>JINNY's MEMBER CRUD</a>
+	<a class="navbar-brand" href="<%=request.getContextPath()%>/list"><i class="fas fa-users mr-2"></i>JINNY's MEMBER CRUD</a>
 </nav>
 
 <div class="container">
@@ -48,8 +49,9 @@
 					<td><%=list.get(i).getMemEmail() %></td>
 					<td><%=list.get(i).getMemHp() %></td>
 					<td>
+						<a class="btn btn-outline-info btn-sm" onclick="fn_detail('<%=list.get(i).getMemId() %>');">조회</a>
 						<a class="btn btn-outline-info btn-sm" onclick="fn_update('<%=list.get(i).getMemId() %>');">수정</a>
-						<a class="btn btn-outline-info btn-sm" onclick="fn_delete('<%=list.get(i).getMemId() %>');">삭제</a>
+						<a class="btn btn-outline-danger btn-sm" onclick="fn_delete('<%=list.get(i).getMemId() %>');">삭제</a>
 					</td>
 				</tr>
 				
@@ -63,10 +65,15 @@
 			<%		
 				}
 			%>
+				<tr>
+					<td colspan="6">
+						<a class="btn btn-outline-info btn-sm" href="<%=request.getContextPath()%>/signup">등록</a>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 		<hr>
-		<a class="btn btn-outline-secondary mt-4 ml-4 float-right" href="<%=request.getContextPath()%>/main">메인으로</a> 
+		 
 	</div>
 <form id="fm" method="post">
 	<input type="hidden" id="memId" name="memId" />
@@ -74,14 +81,12 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript">
-	
-	function fn_delete(memId) {
-		if(confirm('회원정보를 삭제하시겠습니까?')) {
-			$('#memId').attr('value', memId);
-			$('#fm').attr('action', '<%=request.getContextPath()%>/delete');
-			$('#fm').submit();
-		}
-	}
+	function fn_detail(memId) {
+		$('#memId').attr('value', memId);
+		$('#fm').attr('method', 'get');
+		$('#fm').attr('action', '<%=request.getContextPath()%>/detail');
+		$('#fm').submit();
+	}	
 	
 	function fn_update(memId) {
 		$('#memId').attr('value', memId);
@@ -90,6 +95,13 @@
 		$('#fm').submit();
 	}
 
+	function fn_delete(memId) {
+		if(confirm('회원정보를 삭제하시겠습니까?')) {
+			$('#memId').attr('value', memId);
+			$('#fm').attr('action', '<%=request.getContextPath()%>/delete');
+			$('#fm').submit();
+		}
+	}
 </script>
 </body>
 </html>

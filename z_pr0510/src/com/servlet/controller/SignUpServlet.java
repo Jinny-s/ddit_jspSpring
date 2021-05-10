@@ -1,6 +1,7 @@
 package com.servlet.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.catalina.tribes.membership.MemberImpl;
 
 import com.servlet.dto.MemberVO;
+import com.servlet.exception.ExistIdException;
 import com.servlet.service.IMemberService;
 import com.servlet.service.MemberServiceImpl;
 
@@ -19,14 +21,18 @@ import com.servlet.service.MemberServiceImpl;
 public class SignUpServlet extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/signup.jsp");
-		rd.forward(request, response);
+		String view = "/WEB-INF/view/signup.jsp";
+		request.getRequestDispatcher(view).forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String view = "/WEB-INF/view/save.jsp";
+		
 		MemberVO mv = new MemberVO();
 		IMemberService service = MemberServiceImpl.getInstance();
-		mv.setMemId(request.getParameter("memId"));
+		String memId = request.getParameter("memId");
+
+		mv.setMemId(memId);
 		mv.setMemPw(request.getParameter("memPw"));
 		mv.setMemEmail(request.getParameter("memEmail"));
 		mv.setMemHp(request.getParameter("memHp"));
@@ -34,14 +40,19 @@ public class SignUpServlet extends HttpServlet {
 		int cnt = service.insertMember(mv);
 
 		if(cnt > 0) {
-			request.setAttribute("msg", "회원가입이 완료되었습니다.");
+			request.setAttribute("msg", "회원 등록이 완료되었습니다.");
 		} else {
-			request.setAttribute("msg", "회원가입이 실패하였습니다.");
+			try {
+				MemberVO member = service.checkMember(memId);
+			} catch (ExistIdException e) {
+				request.setAttribute("msg", e.getMessage());
+			} catch (SQLException e) {
+				request.setAttribute("msg", "회원 등록이 실패하였습니다.");
+			}
 		}
 		
-		request.setAttribute("url", request.getContextPath() + "/signin");
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/save.jsp");
-		rd.forward(request, response);
+		request.setAttribute("url", request.getContextPath() + "/list");
+		request.getRequestDispatcher(view).forward(request, response);
 	}
 
 }

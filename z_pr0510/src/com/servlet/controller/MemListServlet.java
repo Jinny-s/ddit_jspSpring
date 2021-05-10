@@ -16,15 +16,16 @@ import com.servlet.service.MemberServiceImpl;
 
 @WebServlet("/list")
 public class MemListServlet extends HttpServlet {
-       
+	private static final long serialVersionUID = 1L;
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/list.jsp");
+		String view = "/WEB-INF/view/list.jsp";
 		
 		IMemberService service = MemberServiceImpl.getInstance();
 		List<MemberVO> list = service.selectMemberList();
-		request.setAttribute("list", list);
 		
-		rd.forward(request, response);
+		request.setAttribute("list", list);
+		request.getRequestDispatcher(view).forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

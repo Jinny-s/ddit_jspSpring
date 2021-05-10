@@ -1,6 +1,8 @@
 package com.servlet.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,15 +14,25 @@ import com.servlet.service.MemberServiceImpl;
 
 @WebServlet("/delete")
 public class DeleteServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		IMemberService service = MemberServiceImpl.getInstance();
-		service.deleteMember(request.getParameter("memId"));
+		String view = "/WEB-INF/view/save.jsp";
 		
-		response.sendRedirect("/member/list");
+		IMemberService service = MemberServiceImpl.getInstance();
+		int cnt = service.deleteMember(request.getParameter("memId"));
+		
+		if(cnt > 0) {
+			request.setAttribute("msg", "회원 삭제가 완료되었습니다.");
+		} else {
+			request.setAttribute("msg", "회원 삭제가 실패하였습니다.");
+		}
+		
+		request.setAttribute("url", request.getContextPath() + "/list");
+		request.getRequestDispatcher(view).forward(request, response);
 	}
 }

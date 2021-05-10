@@ -15,19 +15,22 @@ import com.servlet.service.MemberServiceImpl;
 
 @WebServlet("/update")
 public class UpdateServlet extends HttpServlet {
-       
+	private static final long serialVersionUID = 1L;
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/update.jsp");
+		String view = "/WEB-INF/view/update.jsp";
 		
-		IMemberService service = MemberServiceImpl.getInstance();
 		String memId = (String) request.getParameter("memId");
+		IMemberService service = MemberServiceImpl.getInstance();
 		MemberVO mv = service.selectMemberByID(memId);
-		request.setAttribute("mv", mv);
 		
-		rd.forward(request, response);
+		request.setAttribute("mv", mv);
+		request.getRequestDispatcher(view).forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String view = "/WEB-INF/view/save.jsp";
+		
 		MemberVO mv = new MemberVO();
 		IMemberService service = MemberServiceImpl.getInstance();
 		mv.setMemId(request.getParameter("memId"));
@@ -38,14 +41,13 @@ public class UpdateServlet extends HttpServlet {
 		int cnt = service.updateMember(mv);
 
 		if(cnt > 0) {
-			request.setAttribute("msg", "수정이 완료되었습니다.");
+			request.setAttribute("msg", "회원정보 수정이 완료되었습니다.");
 		} else {
-			request.setAttribute("msg", "수정이 실패하였습니다.");
+			request.setAttribute("msg", "회원정보 수정이 실패하였습니다.");
 		}
 		
 		request.setAttribute("url", request.getContextPath() + "/list");
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/save.jsp");
-		rd.forward(request, response);
+		request.getRequestDispatcher(view).forward(request, response);
 	}
 
 }

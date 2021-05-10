@@ -4,11 +4,14 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.servlet.dto.MemberVO;
+import com.servlet.exception.ExistIdException;
 import com.servlet.exception.InvalidPasswordException;
 import com.servlet.exception.NotFoundIDException;
 
 
 public interface IMemberService {
+	
+	public MemberVO checkMember(String memId) throws ExistIdException, SQLException;
 	
 	public int insertMember(MemberVO mv);
 	

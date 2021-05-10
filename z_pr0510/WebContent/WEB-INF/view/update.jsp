@@ -1,6 +1,7 @@
 <%@page import="com.servlet.dto.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true" %>
 <%
 	MemberVO mv = (MemberVO) request.getAttribute("mv");
 %>
@@ -11,18 +12,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
 	<script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
-	<script src="<%=request.getContextPath()%>/assets/js/jquery-3.6.0.js"></script>
+	<script src="<%=request.getContextPath()%>/js/jquery-3.6.0.js"></script>
 	<title>JINNY</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary d-flex justify-content-between">
-	<a class="navbar-brand" href="<%=request.getContextPath()%>/main"><i class="fas fa-users mr-2"></i>JINNY's MEMBER CRUD</a>
+	<a class="navbar-brand" href="<%=request.getContextPath()%>/list"><i class="fas fa-users mr-2"></i>JINNY's MEMBER CRUD</a>
 </nav>
 
 <div class="container">
 
 	<div class="col-md-12">
-		<h1 class="m-5"><i class="fas fa-user mr-3"></i>REGISTER FORM</h1>
+		<h1 class="m-5"><i class="fas fa-user mr-3"></i>UPDATE FORM</h1>
 		<form action="update" method="post">
 			<table class="table">
 				<tbody>
@@ -53,7 +54,7 @@
 				</tbody>
 			</table>
 			<hr>
-			<a class="btn btn-outline-secondary mt-4 ml-4 float-right" href="<%=request.getContextPath()%>/main">메인으로</a> 
+			<a class="btn btn-outline-secondary mt-4 ml-4 float-right" href="<%=request.getContextPath()%>/list">목록으로</a> 
 			<button class="btn btn-outline-primary mt-4 float-right" type="submit">수정</button>
 		</form>
 	</div>
