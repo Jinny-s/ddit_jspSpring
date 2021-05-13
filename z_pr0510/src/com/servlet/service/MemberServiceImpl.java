@@ -10,8 +10,6 @@ import com.servlet.dao.IMemberDao;
 import com.servlet.dao.MemberDaoImpl;
 import com.servlet.dto.MemberVO;
 import com.servlet.exception.ExistIdException;
-import com.servlet.exception.InvalidPasswordException;
-import com.servlet.exception.NotFoundIDException;
 
 public class MemberServiceImpl implements IMemberService {
 
@@ -61,18 +59,19 @@ public class MemberServiceImpl implements IMemberService {
 	}
 
 	@Override
-	public int updateMember(MemberVO mv) {
+	public int updateMember(MemberVO mv) throws SQLException{
 		int cnt = 0;
 		try {
 			cnt = memDao.updateMember(smc, mv);
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw e;
 		}
 		return cnt;
 	}
 
 	@Override
-	public int deleteMember(String memId) {
+	public int deleteMember(String memId) throws SQLException{
 		int cnt = 0;
 		try {
 			cnt = memDao.deleteMember(smc, memId);
@@ -80,27 +79,6 @@ public class MemberServiceImpl implements IMemberService {
 			e.printStackTrace();
 		}
 		return cnt;
-	}
-	
-	@Override
-	public MemberVO login(String memId, String memPw) throws NotFoundIDException, InvalidPasswordException, SQLException {
-		MemberVO member = null;
-		try {
-			member= memDao.selectMemberByID(smc, memId);
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw e;
-		}
-		
-		if(member != null) {
-			if(memPw.equals(member.getMemPw())) {
-				return member;
-			} else {
-				throw new InvalidPasswordException();
-			}
-		} else {
-			throw new NotFoundIDException();
-		}
 	}
 	
 	@Override

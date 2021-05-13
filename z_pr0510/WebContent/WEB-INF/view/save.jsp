@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
-<%
-	String msg = (String) request.getAttribute("msg");
-	String url = (String) request.getAttribute("url");
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,21 +9,14 @@
 <title></title>
 </head>
 <body>
-<form action="<%=url%>" method="get" name="fm">
-
+<form action="${url }" method="get" name="fm">
 </form>
+
 <script type="text/javascript">
-
-<%
-	if(msg != null) {
-%>
-	alert("<%=msg %>");
-<%
-	}
-%>
-
-document.fm.submit();
-
+	<c:if test="${not empty msg }">
+		alert('${msg}')
+	</c:if>
+	document.fm.submit();
 </script>
 </body>
 </html>

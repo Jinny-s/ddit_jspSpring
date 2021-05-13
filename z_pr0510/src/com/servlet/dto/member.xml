@@ -45,6 +45,7 @@
 			   , MEM_EMAIL	memEmail
 			   , MEM_HP		memHp
 		FROM   TB_MEM
+		ORDER BY MEM_ID
 	</select>
 	
 </sqlMap>

@@ -30,5 +30,6 @@
 <fullyQualifiedTypeName name="com.servlet.service.MemberServiceImpl"/>
 <fullyQualifiedTypeName name="com.servlet.exception.ExistIdException"/>
 <fullyQualifiedTypeName name="com.servlet.dto.MemberVO"/>
+<fullyQualifiedTypeName name="org.eclipse.jdt.internal.compiler.ast.EqualExpression"/>
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
 </qualifiedTypeNameHistroy>

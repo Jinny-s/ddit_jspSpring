@@ -1,6 +1,7 @@
 package com.servlet.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -38,11 +39,13 @@ public class UpdateServlet extends HttpServlet {
 		mv.setMemEmail(request.getParameter("memEmail"));
 		mv.setMemHp(request.getParameter("memHp"));
 		
-		int cnt = service.updateMember(mv);
-
-		if(cnt > 0) {
-			request.setAttribute("msg", "회원정보 수정이 완료되었습니다.");
-		} else {
+		int cnt = 0;
+		try {
+			cnt = service.updateMember(mv);
+			if(cnt > 0) {
+				request.setAttribute("msg", "회원정보 수정이 완료되었습니다.");
+			}
+		} catch (SQLException e) {
 			request.setAttribute("msg", "회원정보 수정이 실패하였습니다.");
 		}
 		

@@ -1,8 +1,8 @@
 package com.servlet.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,11 +24,13 @@ public class DeleteServlet extends HttpServlet {
 		String view = "/WEB-INF/view/save.jsp";
 		
 		IMemberService service = MemberServiceImpl.getInstance();
-		int cnt = service.deleteMember(request.getParameter("memId"));
-		
-		if(cnt > 0) {
-			request.setAttribute("msg", "회원 삭제가 완료되었습니다.");
-		} else {
+		int cnt;
+		try {
+			cnt = service.deleteMember(request.getParameter("memId"));
+			if(cnt > 0) {
+				request.setAttribute("msg", "회원 삭제가 완료되었습니다.");
+			}
+		} catch (SQLException e) {
 			request.setAttribute("msg", "회원 삭제가 실패하였습니다.");
 		}
 		
