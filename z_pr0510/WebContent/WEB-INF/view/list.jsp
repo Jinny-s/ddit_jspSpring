@@ -11,12 +11,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
 	<script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
-	<script src="<c:url value='/' />js/jquery-3.6.0.js"></script>
+	<script src="<%=request.getContextPath()%>/js/jquery-3.6.0.js"></script>
 	<title>JINNY</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary d-flex justify-content-between">
-	<a class="navbar-brand" href="<c:url value='/' />list"><i class="fas fa-users mr-2"></i>JINNY's MEMBER CRUD</a>
+	<a class="navbar-brand" href="<%=request.getContextPath()%>/list"><i class="fas fa-users mr-2"></i>JINNY's MEMBER CRUD</a>
 </nav>
 
 <div class="container">
@@ -54,7 +54,7 @@
 			</c:forEach>
 				<tr>
 					<td colspan="6">
-						<a class="btn btn-outline-info btn-sm" href="<c:url value='/' />signup">등록</a>
+						<a class="btn btn-outline-info btn-sm" href="<%=request.getContextPath()%>/signup">등록</a>
 					</td>
 				</tr>
 			</tbody>
@@ -71,21 +71,21 @@
 	function fn_detail(memId) {
 		$('#memId').attr('value', memId);
 		$('#fm').attr('method', 'get');
-		$('#fm').attr('action', '<c:url value='/' />detail');
+		$('#fm').attr('action', '<%=request.getContextPath()%>/detail');
 		$('#fm').submit();
 	}	
 	
 	function fn_update(memId) {
 		$('#memId').attr('value', memId);
 		$('#fm').attr('method', 'get');
-		$('#fm').attr('action', '<c:url value='/' />update');
+		$('#fm').attr('action', '<%=request.getContextPath()%>/update');
 		$('#fm').submit();
 	}
 
 	function fn_delete(memId) {
 		if(confirm('회원정보를 삭제하시겠습니까?')) {
 			$('#memId').attr('value', memId);
-			$('#fm').attr('action', '<c:url value='/' />delete');
+			$('#fm').attr('action', '<%=request.getContextPath()%>/delete');
 			$('#fm').submit();
 		}
 	}
