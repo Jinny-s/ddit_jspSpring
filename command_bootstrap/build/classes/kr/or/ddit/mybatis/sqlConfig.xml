@@ -9,7 +9,6 @@
 		<typeAlias type="java.lang.String" alias="str" />
 		<typeAlias type="java.lang.Integer" alias="int" />
 		<typeAlias type="kr.or.ddit.dto.MenuVO" alias="menu" />
-		
 	</typeAliases>
 	
 	<environments default="development">
