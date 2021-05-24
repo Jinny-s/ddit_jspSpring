@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.Scanner"/>
-<fullyQualifiedTypeName name="java.awt.List"/>
-<fullyQualifiedTypeName name="com.sun.corba.se.pept.protocol.MessageMediator"/>
 <fullyQualifiedTypeName name="com.servlet.member.dao.IMemberDao"/>
 <fullyQualifiedTypeName name="com.servlet.member.dao.MemberDaoImpl"/>
 <fullyQualifiedTypeName name="com.ibatis.sqlmap.client.SqlMapClient"/>
@@ -38,21 +35,29 @@
 <fullyQualifiedTypeName name="kr.or.ddit.mybatis.OracleMyBatisSqlSessionFactory"/>
 <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSessionException"/>
 <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
-<fullyQualifiedTypeName name="java.sql.SQLException"/>
-<fullyQualifiedTypeName name="kr.or.ddit.service.MenuService"/>
 <fullyQualifiedTypeName name="org.junit.Before"/>
 <fullyQualifiedTypeName name="kr.or.ddit.service.MenuServiceImpl"/>
 <fullyQualifiedTypeName name="kr.or.ddit.service.MockMenuDAO"/>
 <fullyQualifiedTypeName name="org.junit.After"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="junit.framework.Assert"/>
 <fullyQualifiedTypeName name="org.junit.Assert"/>
-<fullyQualifiedTypeName name="kr.or.ddit.dto.MenuVO"/>
 <fullyQualifiedTypeName name="org.junit.Test"/>
-<fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.util.Map.Entry"/>
+<fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="com.sun.xml.internal.messaging.saaj.packaging.mime.util.BEncoderStream"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="org.w3c.dom.NodeList"/>
+<fullyQualifiedTypeName name="org.w3c.dom.Node"/>
+<fullyQualifiedTypeName name="org.w3c.dom.Element"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Method"/>
+<fullyQualifiedTypeName name="kr.or.ddit.context.ApplicationContext"/>
+<fullyQualifiedTypeName name="kr.or.ddit.service.MenuService"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="kr.or.ddit.dto.MenuVO"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
 </qualifiedTypeNameHistroy>
