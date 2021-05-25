@@ -14,4 +14,9 @@
 		<property name="menuDAO" ref-value="menuDAO" />
 	</bean>
 	
+	<bean id="TestenuService" class="kr.or.ddit.service.MenuServiceImpl">
+		<property name="sqlSessionFactory" ref-value="sqlSessionFactory" />
+		<property name="menuDAO" ref-value="menuDAO" />
+	</bean>
+	
 </beans>
