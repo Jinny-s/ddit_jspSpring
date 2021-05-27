@@ -1,4 +1,4 @@
-package kr.or.ddit.utils;
+package kr.or.ddit.controller;
 
 import java.io.PrintWriter;
 

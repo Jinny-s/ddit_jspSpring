@@ -9,20 +9,20 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="/resources" key="selection"/>
+		<item value="ifr" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="ifr"/>
+			<item value="&lt;%=request.getContextPath() %&gt;"/>
 			<item value="/resources"/>
 			<item value="getContextPath"/>
 			<item value="com.jquery"/>
 			<item value="file"/>
 			<item value="SQLException"/>
 			<item value="&lt;c:url value=&apos;/&apos; /&gt;"/>
-			<item value="&lt;%request.getContextPath()%&gt;"/>
-			<item value="&lt;%request.getContextPath%&gt;"/>
 		</list>
 		<list key="replacehistory">
 			<item value="kr.or.ddit"/>

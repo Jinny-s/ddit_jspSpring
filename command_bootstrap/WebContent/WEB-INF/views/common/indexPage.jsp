@@ -16,9 +16,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <title></title>
 
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/bootstrap/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/resources/bootstrap/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/bootstrap/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="/resources/bootstrap/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
@@ -34,8 +34,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
      	<!-- main menu list -->
     	<c:forEach items="${menuList }" var="menu">
     	<li class="nav-item d-none d-sm-inline-block">
-    		<a href="${menu.murl }" class="nav-link">
-	    		<i class="fas fa-chalkboard mr-1"></i>${menu.mname }
+    		<a href="javascript:subMenu('${menu.mcode }');goPage('${menu.murl }','${menu.mcode }');" 
+    			class="nav-link" >
+	    		<i class="${menu.micon }"></i>
+	    		${menu.mname }
     		</a>
     	</li>
     	</c:forEach>
@@ -65,7 +67,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="<%=request.getContextPath() %>/resources/bootstrap/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="/resources/bootstrap/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
@@ -81,7 +83,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="<%=request.getContextPath() %>/resources/bootstrap/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="/resources/bootstrap/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   John Pierce
@@ -97,7 +99,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="<%=request.getContextPath() %>/resources/bootstrap/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="/resources/bootstrap/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Nora Silvester
@@ -152,7 +154,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="<%=request.getContextPath() %>/resources/bootstrap/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="/resources/bootstrap/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
@@ -210,24 +212,34 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
-<script src="<%=request.getContextPath() %>/resources/bootstrap/plugins/jquery/jquery.min.js"></script>
+<script src="/resources/bootstrap/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="<%=request.getContextPath() %>/resources/bootstrap/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/resources/bootstrap/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="<%=request.getContextPath() %>/resources/bootstrap/dist/js/adminlte.min.js"></script>
+<script src="/resources/bootstrap/dist/js/adminlte.min.js"></script>
 <!-- jquery cookie -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
 <!-- handlebars -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
 
-<!-- common -->
+<script src="/resources/js/index.js"></script>
+
+<script type="text/x-handlebars-template"  id="subMenu-list-template" >
+{{#each .}}
+<li class="nav-item subMenu" >
+	<a href="javascript:goPage('{{murl}}','{{mcode}}');initPageParam();" class="nav-link">
+		<i class="{{micon}}"></i>
+		<p>{{mname}}</p>
+	</a>
+</li>
+{{/each}}
+</script>
+
+
 <script>
-$('ul.navbar-nav > li.nav-item > a').click(function(event){
-	// alert('click a!');
-	$('iframe[name="ifr"]').attr('src',$(this).attr('href'));
-	return false;
-});
+goPage('${menu.murl}','${menu.mcode}');
+subMenu('${menu.mcode}'.substring(0,3)+"0000");
 </script>
 
 </body>
