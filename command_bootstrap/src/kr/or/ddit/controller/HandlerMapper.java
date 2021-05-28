@@ -41,7 +41,6 @@ public class HandlerMapper {
 						paramType = paramType.substring(paramType.lastIndexOf(".") + 1);
 						
 						paramType = (paramType.charAt(0) + "").toLowerCase() + paramType.substring(1);
-						System.out.println("ㅎㅅㅇ");
 						try {
 							method.invoke(commandAction, ApplicationContext.getApplicationContext().get(paramType));
 							System.out.println("[HandlerMapper:invoke]" + ApplicationContext.getApplicationContext().get(paramType));
