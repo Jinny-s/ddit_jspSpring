@@ -37,7 +37,6 @@ public class FrontServlet extends HttpServlet {
 			if(handler != null) { // 올바른 요청
 				try {
 					view = handler.process(request, response);
-					System.out.println("?:"+view);
 					
 					if(view != null) ViewResolver.view(request, response, view);
 					
