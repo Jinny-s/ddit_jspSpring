@@ -7,7 +7,6 @@
 
 	<!-- Repository Layer -->
 	<bean id="menuDAO"  class="kr.or.ddit.dao.MenuDAOImpl" />
-	<bean id="memberDAO"  class="kr.or.ddit.dao.MemberDAOImpl" />
 	
 	<!-- Service layer -->
 	<bean id="menuService" class="kr.or.ddit.service.MenuServiceImpl">
@@ -15,8 +14,9 @@
 		<property name="menuDAO" ref-value="menuDAO" />
 	</bean>
 	
-	<bean id="memberService" class="kr.or.ddit.service.MemberServiceImpl">
+	<bean id="TestenuService" class="kr.or.ddit.service.MenuServiceImpl">
 		<property name="sqlSessionFactory" ref-value="sqlSessionFactory" />
-		<property name="memberDAO" ref-value="memberDAO" />
+		<property name="menuDAO" ref-value="menuDAO" />
 	</bean>
+	
 </beans>
