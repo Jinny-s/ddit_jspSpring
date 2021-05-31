@@ -1,13 +1,16 @@
 package kr.or.ddit.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import kr.or.ddit.dto.MemberVO;
 import kr.or.ddit.handler.Handler;
 
 public class FrontServlet extends HttpServlet {
@@ -28,6 +31,21 @@ public class FrontServlet extends HttpServlet {
 			command = command.substring(request.getContextPath().length());
 		}
 		
+		// 로그인 확인 (좋은 방법 아님 → filter 처리할 것)
+//		if(!command.contains("login")) {
+//			HttpSession session = request.getSession();
+//			MemberVO member = (MemberVO) session.getAttribute("loginUser");
+//			if(member==null) { // login하지 않은 상태
+//				response.setContentType("text/html;charset=utf-8");
+//				PrintWriter out = response.getWriter();
+//				out.println("<script>");
+//				out.println("alert('로그인은 필수입니다.');");
+//				out.println("location.href='/';");
+//				out.println("</script>");
+//				return;
+//			}
+//		}
+		
 		// commandHandler 실행 (HandlerMapper 의뢰 handler 할당)
 		Handler handler = null;
 		String view = null;
@@ -45,7 +63,7 @@ public class FrontServlet extends HttpServlet {
 				}
 				
 			} else {
-				response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+				response.sendError(HttpServletResponse.SC_NOT_FOUND);
 			}
 		} else {
 			response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);

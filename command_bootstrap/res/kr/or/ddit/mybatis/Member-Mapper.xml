@@ -9,5 +9,10 @@
 		FROM   MEMBER
 		WHERE  ID = #{id}
 	</select>
+	
+	<select id="selectMemberList" resultType="member">
+		SELECT *
+		FROM   MEMBER
+	</select>
 
 </mapper>

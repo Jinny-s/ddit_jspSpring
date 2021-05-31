@@ -21,7 +21,7 @@
 	  <div class="info">
 	  	<div class="row">
 	  		<a href="#" class="d-block">${loginUser.name }</a>
-	  		<button onclick="<%=request.getContextPath() %>/logout.do" class="btn btn-xs btn-primary col-xs-3" type="button">
+	  		 <button onclick="location.href='<%=request.getContextPath() %>/logout.do';" class="btn btn-xs btn-primary col-xs-3" type="button">
 	  			LOGOUT
 	  		</button>
 	  	</div>
