@@ -16,10 +16,12 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-	  </div>
+          <img src="/member/getPicture.do?picture=${loginUser.picture}" class="img-circle elevation-2" alt="User Image">
+      </div>
 	
 	  <div class="info">
 	  	<div class="row">
+	  		
 	  		<a href="#" class="d-block">${loginUser.name }</a>
 	  		 <button onclick="location.href='<%=request.getContextPath() %>/logout.do';" class="btn btn-xs btn-primary col-xs-3" type="button">
 	  			LOGOUT

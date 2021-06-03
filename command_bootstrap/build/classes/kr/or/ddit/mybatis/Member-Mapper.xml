@@ -42,5 +42,11 @@
 		SELECT *
 		FROM MEMBER
 	</select>
-
+	
+	<update id="insertMember" parameterType="member">
+		insert into
+		member(id, pwd, email, phone, picture, name, authority)
+		values(#{id}, #{pwd}, #{email}, #{phone}, #{picture}, #{name}, #{authority})
+	</update>
+	
 </mapper>
