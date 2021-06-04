@@ -20,6 +20,8 @@ public class MemberListSearchPageHandler implements Handler {
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String url = "member/list";
 		
+		System.out.println(1/0);
+		
 		String page = request.getParameter("page");
 		String perPageNum = request.getParameter("perPageNum");
 		String searchType = request.getParameter("searchType");

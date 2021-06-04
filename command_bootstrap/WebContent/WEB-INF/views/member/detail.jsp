@@ -96,7 +96,7 @@
       	  </div>
     </section>
     <!-- /.content -->
-  </div>
+  </div>	
   <!-- /.content-wrapper -->
   
 <script>
