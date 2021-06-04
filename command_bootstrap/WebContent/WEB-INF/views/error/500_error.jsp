@@ -5,7 +5,22 @@
 <html>
 <head>
 	<title></title>
+	<style> 
+.money {
+  animation: mymove 5s infinite;
+}
+
+@keyframes mymove {
+  from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(359deg);
+    }
+}
+</style>
 	<%@ include file="/WEB-INF/views/include/style.jsp" %>
+	
 </head>
 <body>
 <section class="content">
@@ -37,7 +52,7 @@
 
     </section>
 	<%for(int i = 0; i < 100; i++) {%>
-	<img alt="" src="/500.jpg">    
+	<img class="money" src="/500.jpg">    
 	<% }%>
 	<%@ include file="/WEB-INF/views/include/js.jsp" %>
 </body>

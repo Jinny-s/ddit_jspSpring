@@ -41,9 +41,8 @@ public class MemberRemoveHandler implements Handler {
 		if (loginUser.getId().equals(member.getId())) {
 			request.getSession().invalidate(); // session 갱신
 		}
-		
+
 		request.setAttribute("member", member);
-		request.setAttribute("parentReload", true);
 		
 		return url;
 	}
