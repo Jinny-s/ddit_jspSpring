@@ -10,6 +10,7 @@
 		<typeAlias type="java.lang.Integer" alias="int" />
 		<typeAlias type="kr.or.ddit.dto.MenuVO" alias="menu" />
 		<typeAlias type="kr.or.ddit.dto.MemberVO" alias="member" />
+		<typeAlias type="kr.or.ddit.dto.NoticeVO" alias="Notice" />
 	</typeAliases>
 	
 	<environments default="development">
@@ -28,5 +29,6 @@
 	<mappers>
 		<mapper resource="kr/or/ddit/mybatis/Menu-Mapper.xml" />
 		<mapper resource="kr/or/ddit/mybatis/Member-Mapper.xml" />
+		<mapper resource="kr/or/ddit/mybatis/Notice-Mapper.xml" />
 	</mappers>
 </configuration>
