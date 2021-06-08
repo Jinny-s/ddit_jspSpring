@@ -49,7 +49,16 @@ public class NoticeDAOImpl implements NoticeDAO {
 
 	@Override
 	public void insertNotice(SqlSession session, NoticeVO notice) throws SQLException {
-		// TODO Auto-generated method stub
-		
+		session.update("Notice-Mapper.insertNotice", notice);
+	}
+
+	@Override
+	public void updateNotice(SqlSession session, NoticeVO notice) throws SQLException {
+		session.update("Notice-Mapper.updateNotice", notice);
+	}
+
+	@Override
+	public void deleteNotice(SqlSession session, int nno) throws SQLException {
+		session.update("Notice-Mapper.deleteNotice", nno);
 	}
 }

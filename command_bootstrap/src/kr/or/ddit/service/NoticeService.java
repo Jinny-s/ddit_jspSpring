@@ -19,4 +19,13 @@ public interface NoticeService {
 	// 수정화면 상세
 	NoticeVO getNoticeForModify(int nno) throws SQLException;
 	
+	// 공지등록
+	void regist(NoticeVO notice) throws SQLException;
+	
+	// 공지수정
+	void modify(NoticeVO notice) throws SQLException;
+	
+	// 공지삭제
+	void remove(int nno) throws SQLException;
+	
 }

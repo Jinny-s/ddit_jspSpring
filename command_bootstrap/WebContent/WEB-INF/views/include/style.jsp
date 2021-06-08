@@ -7,8 +7,12 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 
 <!-- Font Awesome Icons -->
-<link rel="stylesheet" href="/resources/bootstrap/plugins/fontawesome-free/css/all.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/bootstrap/plugins/fontawesome-free/css/all.min.css">
 <!-- Theme style -->
-<link rel="stylesheet" href="/resources/bootstrap/dist/css/adminlte.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/bootstrap/dist/css/adminlte.min.css">
+<!-- summernote -->
+<link href="<%=request.getContextPath() %>/resources/bootstrap/plugins/summernote/summernote.min.css" rel="stylesheet">
+
+
 <!-- Google Font: Source Sans Pro -->
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">

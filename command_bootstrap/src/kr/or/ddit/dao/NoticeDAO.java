@@ -28,4 +28,10 @@ public interface NoticeDAO {
 	
 	// 공지 작성
 	public void insertNotice(SqlSession session, NoticeVO notice) throws SQLException;
+	
+	// 공지 수정
+	public void updateNotice(SqlSession session, NoticeVO notice) throws SQLException;
+	
+	// 공지 삭제
+	public void deleteNotice(SqlSession session, int nno) throws SQLException;
 }

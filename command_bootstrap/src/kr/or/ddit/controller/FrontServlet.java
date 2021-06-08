@@ -82,7 +82,7 @@ public class FrontServlet extends HttpServlet {
 			System.out.println("[FrontServlet] handlerMapper 가 준비되었습니다.");
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("[FronServlet] handlerMapper 가 준비되지 않았습니다.");
+			System.out.println("[FrontServlet] handlerMapper 가 준비되지 않았습니다.");
 		}
 	}
 
