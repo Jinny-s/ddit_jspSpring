@@ -11,17 +11,6 @@ public class ReplyVO {
 	private Date regdate;
 	private Date updatedate;
 	
-	private String picture;
-	public String getPicture() {
-		return picture;
-	}
-	public void setPicture(String picture) {
-		this.picture = picture;
-	}
-	
-	
-	
-	
 	public int getRno() {
 		return rno;
 	}

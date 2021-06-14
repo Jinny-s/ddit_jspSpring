@@ -37,7 +37,6 @@
 			writer like '%'||#{keyword}||'%'
 			)
 		</if>
-		
 	</sql>
 	
 	<select id="selectSearchNoticeList" resultType="notice">
