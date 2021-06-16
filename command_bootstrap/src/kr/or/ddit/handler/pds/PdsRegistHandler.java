@@ -49,6 +49,7 @@ public class PdsRegistHandler implements Handler{
 			
 			//파일 저장후 List<AttachVO>를 리턴..
 			attachList = FileUploadResolver.fileUpload(multi.getFileItems("uploadFile"), uploadPath);
+			
 		} catch (NotMultipartFormDataException e) {
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 			e.printStackTrace();

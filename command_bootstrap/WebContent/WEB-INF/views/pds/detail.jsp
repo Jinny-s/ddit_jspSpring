@@ -70,14 +70,22 @@
 									
 								</div>			
 								<div class="card-footer">
-									<div class="row">
-										<div class="info-box">
-							              <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
-							              <div class="info-box-content">
-							                <span class="info-box-text"></span>
-							              </div>
-							            </div>
-									</div>
+									<c:forEach var="attach" items="${pds.attachList}">
+										<div class="col-md-4 col-sm-4 col-xs-12"  style="cursor:pointer;"
+											onclick="location.href='<%=request.getContextPath()%>/pds/getFile.do?ano=${attach.ano }';">
+											<div class="info-box">	
+												<span class="info-box-icon bg-yellow">
+													<i class="fa fa-copy"></i>
+												</span>
+												<div class="info-box-content">
+													<span class ="info-box-text">
+														<fmt:formatDate value="${attach.regDate }" pattern="yyyy-MM-dd" />	
+													</span>
+													<span class ="info-box-number">${attach.fileName }</span>
+												</div>
+											</div>
+										 </div>				
+					              	</c:forEach>
 								</div>				
 							</div>
 						</div>
@@ -85,8 +93,8 @@
 					</div>
 					<div class="card-footer">
 						
-							<button type="button" id="modifyBtn" class="btn btn-warning">Modify</button>						
-					    	<button type="button" id="removeBtn" class="btn btn-danger">REMOVE</button>
+							<button type="button" id="modifyBtn" class="btn btn-warning" onclick="submit_go('modifyForm.do','${pds.pno}');">Modify</button>						
+					    	<button type="button" id="removeBtn" class="btn btn-danger" onclick="submit_go('remove.do','${pds.pno}');">REMOVE</button>
 					   
 					    <button type="button" id="listBtn" class="btn btn-primary" onclick="CloseWindow();">CLOSE </button>
 					</div>									
@@ -95,4 +103,12 @@
 		</div><!-- end row  -->		
 		
     </section>
+<script>
+	function submit_go(url,pno) {
+		location.href=url+"?pno="+pno;
+	}
+
+</script>
+    
+    
 </body>
