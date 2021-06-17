@@ -39,7 +39,7 @@
 				<button type="button" class="btn btn-primary" onclick="OpenWindow('registForm.do','회원등록',800,700);">회원등록</button>
 				<div id="keyword" class="card-tools" style="width:550px;">
 					<div class="input-group row">
-						<select class="form-control col-md-3 mr-3" name="perPageNum" id="perPageNum" onchange="list_go();">
+						<select class="form-control col-md-3 mr-3" name="perPageNum" id="perPageNum" onchange="list_go(1);">
 							<option value="10">정렬개수</option>						
 							<option value="2" ${cri.perPageNum == 2 ? 'selected':''}>2개씩</option>						
 							<option value="3" ${cri.perPageNum == 3 ? 'selected':''}>3개씩</option>						
@@ -92,6 +92,6 @@
 			</div>		
 		</div>	
 	</section>
-<script src="/resources/js/common.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/common.js"></script>
 
 </body>
