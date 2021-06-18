@@ -113,6 +113,6 @@
     </section>
     <!-- /.content -->
 
-<script src="/resources/js/common.js" ></script>
+<script src="<%=request.getContextPath() %>/resources/js/common.js" ></script>
 
 </body>
