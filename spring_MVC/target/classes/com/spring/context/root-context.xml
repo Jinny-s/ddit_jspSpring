@@ -21,10 +21,11 @@
 	
 	<!-- file upload -->
 	<bean id="fileUploadPath" class="java.lang.String">
-		<constructor-arg value="${pds.upload" />
+		<constructor-arg value="${pds.upload}" />
 	</bean>
 	
 	<import resource="./dataSource-context.xml" />
 	<import resource="./application-context.xml" />
 		
 </beans>
+
